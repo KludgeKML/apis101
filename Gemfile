@@ -47,3 +47,15 @@ group :development do
 
 end
 
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "sentry-ruby", "~> 5.12"
+
+gem "sentry-rails", "~> 5.12"
+
+gem "graphql", "~> 2.1"
+
+gem "graphiql-rails", "~> 1.9"
+
+gem "sass-rails", "~> 6.0"
