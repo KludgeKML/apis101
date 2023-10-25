@@ -9,7 +9,15 @@ Rails.application.routes.draw do
     namespace :soap do
       wash_out :users
     end
-  end    
+
+    namespace :graphql do
+      post "/execute", to: "graphql#execute"
+    end
+  end
+
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/api/graphql/execute"
+  end 
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
