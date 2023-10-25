@@ -6,6 +6,14 @@ Rails.application.routes.draw do
       resources :users
     end
 
+    namespace :v2 do
+      resources :groups
+      resources :roles
+      resources :users
+
+      get "/", to: "root#index"
+    end
+
     namespace :soap do
       wash_out :users
     end

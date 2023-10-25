@@ -59,3 +59,5 @@ gem "graphql", "~> 2.1"
 gem "graphiql-rails", "~> 1.9"
 
 gem "sass-rails", "~> 6.0"
+
+gem "hal_presenter", "~> 1.7"

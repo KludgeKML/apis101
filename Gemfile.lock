@@ -99,6 +99,7 @@ GEM
       sprockets-rails
     graphql (2.1.4)
       racc (~> 1.4)
+    hal_presenter (1.7.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -225,6 +226,7 @@ DEPENDENCIES
   dockerfile-rails (>= 1.5)
   graphiql-rails (~> 1.9)
   graphql (~> 2.1)
+  hal_presenter (~> 1.7)
   pg
   puma (>= 5.0)
   rails (~> 7.1.1)
