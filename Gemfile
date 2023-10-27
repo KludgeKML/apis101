@@ -61,3 +61,5 @@ gem "graphiql-rails", "~> 1.9"
 gem "sass-rails", "~> 6.0"
 
 gem "hal_presenter", "~> 1.7"
+
+gem "rswag-ui", "~> 2.11"
