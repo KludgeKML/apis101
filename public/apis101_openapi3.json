@@ -75,18 +75,12 @@
         "operationId": "createUser",
         "requestBody": {
           "description": "Created user object",
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "id": {
-                    "type": "integer",
-                    "format": "int64",
-                    "examples": [
-                      10
-                    ]
-                  },
                   "name": {
                     "type": "string",
                     "examples": [
@@ -254,6 +248,43 @@
           }
         }
       }
+    },
+    "/users/{id}/groups/{group_id}": {
+      "put": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Add group to user",
+        "operationId": "addGroupToUser",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id for user to add group to",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group_id",
+            "in": "path",
+            "description": "id for group to add user to",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }          
+        ],        
+        "responses": {
+          "default": {
+            "description": "successful operation",
+          },
+          "404": {
+            "description": "User or Group not found"
+          }
+        }
+      }    
     }
   },
   "components": {
