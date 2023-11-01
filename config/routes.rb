@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :users
 
       put "/groups/:id/users/:user_id", to: "groups#add_user_to_group"
+      delete "/groups/:id/users/:user_id", to: "groups#remove_user_from_group"
     end
 
     namespace :v2 do
