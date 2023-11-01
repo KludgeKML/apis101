@@ -63,3 +63,5 @@ gem "sass-rails", "~> 6.0"
 gem "hal_presenter", "~> 1.7"
 
 gem "rswag-ui", "~> 2.11"
+
+gem "jwt", "~> 2.7"
