@@ -18,8 +18,4 @@ class UserSerializer
   link :groups do
   	"/api/v2/users/#{resource.id}/groups"
   end
-
-  link :roles do
-  	"/api/v2/users/#{resource.id}/roles"
-  end
 end
