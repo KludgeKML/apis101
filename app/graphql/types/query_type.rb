@@ -38,15 +38,5 @@ module Types
     def groups
       Group.all
     end
-
-    field :roles,
-    [Types::RoleType],
-    null: false,
-    description: "Return a list of roles"
-
-    def roles
-      Role.all
-    end
-
   end
 end
