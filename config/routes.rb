@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :groups
       resources :users
+
+      put "/groups/:id/users/:user_id", to: "groups#add_user_to_group"
     end
 
     namespace :v2 do
