@@ -1,7 +1,7 @@
 module Api
   module V1
     class GroupsController < ApplicationController
-      before_action :set_group, only: %i[ show update destroy ]
+      before_action :set_group, only: %i[ show update destroy add_user_to_group ]
 
       # GET /groups
       def index
@@ -12,7 +12,7 @@ module Api
 
       # GET /groups/1
       def show
-        render json: @group
+        render json: @group, include: [:users]
       end
 
       # POST /groups
@@ -29,6 +29,15 @@ module Api
       # PATCH/PUT /groups/1
       def update
         if @group.update(group_params)
+          render json: @group
+        else
+          render json: @group.errors, status: :unprocessable_entity
+        end
+      end
+
+      # PUT /groups/1/users/1
+      def add_user_to_group
+        if @group.users << User.find_by(id: params[:user_id])
           render json: @group
         else
           render json: @group.errors, status: :unprocessable_entity
