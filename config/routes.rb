@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       resources :users
 
       get "/", to: "root#index"
+
+      post "/tokens", to: "tokens#new_token"
     end
 
     namespace :soap do

@@ -1,6 +1,6 @@
 module Api
   module V2
-    class GroupsController < ApplicationController
+    class GroupsController < Api::V2::BaseController
       before_action :set_group, only: %i[ show update destroy ]
 
       # GET /groups
