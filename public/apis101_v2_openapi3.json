@@ -2,8 +2,8 @@
   "openapi": "3.0.0",
   "info": {
     "title": "APIs 101 API",
-    "description": "This is a sample API based on the OpenAPI 3.1 specification.",
-    "version": "1.0.1"
+    "description": "This is version 2 of the API based on the OpenAPI 3.1 specification.",
+    "version": "2.0.1"
   },
   "externalDocs": {
     "description": "Find out more about Swagger",
@@ -11,7 +11,7 @@
   },
   "servers": [
     {
-      "url": "https://small-river-8929.fly.dev/api/v1"
+      "url": "https://apis101.kludge.co.uk/api/v2"
     }
   ],
   "tags": [
