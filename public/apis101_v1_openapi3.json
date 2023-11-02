@@ -17,11 +17,11 @@
   "tags": [
     {
       "name": "users",
-      "description": "An individual member of the organisation"
+      "description": "An individual member of the organisation, who can be in many groups"
     },
     {
       "name": "groups",
-      "description": "A group with many users and roles"
+      "description": "A group with many users"
     },
   ],
   "paths": {
@@ -281,60 +281,6 @@
           }
         }
       }    
-    },
-    "/tokens": {
-      "post": {
-        "tags": [
-          "tokens"
-        ],
-        "summary": "Create token",
-        "operationId": "createToken",
-        "requestBody": {
-          "description": "Create new authorization token",
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "created_for": {
-                    "type": "string",
-                    "examples": [
-                      "Joe Bloggs"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "default": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "description": {
-                      "type": "string",
-                      "examples": [
-                        "Token generated at 2023-11-01 20:49:14 UTC"
-                      ]
-                    },
-                    "jwt": {
-                      "type": "string",
-                      "examples": [
-                        "eyJhbGciOiJIUzI1NiJ9.eyJzb3VyY2UiOiJJIG1hZGUgdGhpcyJ9.xVxd6bE1tepoo2uNu135_LnSyVAk-NYjbxdNd41EfV8"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }      
     }
   },
   "components": {
@@ -374,12 +320,6 @@
         "xml": {
           "name": "##default"
         }
-      }
-    },
-    "securitySchemes": {
-      "BearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
       }
     }
   }
