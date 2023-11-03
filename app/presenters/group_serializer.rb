@@ -1,4 +1,4 @@
-class UserSerializer
+class GroupSerializer
   extend HALPresenter
   model Group
 
