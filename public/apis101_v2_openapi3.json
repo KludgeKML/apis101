@@ -258,46 +258,6 @@
         }
       }
     },
-    "/users/{id}/groups/{group_id}": {
-      "put": {
-        "tags": [
-          "users"
-        ],
-        "summary": "Add group to user",
-        "security": {
-          "BearerAuth": []
-        },
-        "operationId": "addGroupToUser",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "id for user to add group to",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "group_id",
-            "in": "path",
-            "description": "id for group to add user to",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }          
-        ],        
-        "responses": {
-          "default": {
-            "description": "successful operation"
-          },
-          "404": {
-            "description": "User or Group not found"
-          }
-        }
-      }    
-    },
     "/tokens": {
       "post": {
         "tags": [
