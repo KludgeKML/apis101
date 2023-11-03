@@ -72,9 +72,9 @@
           "users"
         ],
         "summary": "Create user",
-        "security": {
+        "security": [
           "BearerAuth": []
-        },
+        ],
         "operationId": "createUser",
         "requestBody": {
           "description": "Created user object",
@@ -182,9 +182,9 @@
           "users"
         ],
         "summary": "Update user",
-        "security": {
+        "security": [
           "BearerAuth": []
-        },
+        ],
         "operationId": "updateUser",
         "parameters": [
           {
@@ -233,9 +233,9 @@
           "users"
         ],
         "summary": "Delete user",
-        "security": {
+        "security": [
           "BearerAuth": []
-        },
+        ],
         "operationId": "deleteUser",
         "parameters": [
           {
@@ -411,9 +411,9 @@
           "groups"
         ],
         "summary": "Update group",
-        "security": {
+        "security": [
           "BearerAuth": []
-        },        
+        ],
         "operationId": "updateGroup",
         "parameters": [
           {
@@ -455,9 +455,9 @@
           "groups"
         ],
         "summary": "Delete group",
-        "security": {
+        "security": [
           "BearerAuth": []
-        },        
+        ],        
         "operationId": "deleteGroup",
         "parameters": [
           {
@@ -486,9 +486,9 @@
           "groups"
         ],
         "summary": "Add user to group",
-        "security": {
+        "security": [
           "BearerAuth": []
-        },        
+        ],        
         "operationId": "addUserToGroup",
         "parameters": [
           {
@@ -524,9 +524,9 @@
           "groups"
         ],
         "summary": "Remove user from group",
-        "security": {
+        "security": [
           "BearerAuth": []
-        },        
+        ],        
         "operationId": "removeUserFromGroup",
         "parameters": [
           {
