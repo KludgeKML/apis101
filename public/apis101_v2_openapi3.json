@@ -21,11 +21,11 @@
     },
     {
       "name": "groups",
-      "description": "A group with many users and roles"
+      "description": "A group with many users"
     },
     {
       "name": "tokens",
-      "description": "Authorization tokens"
+      "description": "JWT Authorization tokens"
     }
   ],
   "paths": {
@@ -258,6 +258,306 @@
         }
       }
     },
+    "/groups": {
+      "get": {
+        "tags": [
+          "groups"
+        ],
+        "summary": "Get groups",
+        "operationId": "getGroups",
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int64",
+                        "examples": [
+                          10
+                        ]
+                      },
+                      "name": {
+                        "type": "string",
+                        "examples": [
+                          "GOV.UK"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "groups"
+        ],
+        "summary": "Create group",
+        "security": {
+          "BearerAuth": []
+        },        
+        "operationId": "createGroup",
+        "requestBody": {
+          "description": "Created group object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "examples": [
+                      "GOV.UK"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "examples": [
+                        10
+                      ]
+                    },
+                    "name": {
+                      "type": "string",
+                      "examples": [
+                        "Joe Bloggs"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/groups/{id}": {
+      "get": {
+        "tags": [
+          "groups"
+        ],
+        "summary": "Get group by id",
+        "description": "",
+        "operationId": "getGroupById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id that needs to be fetched. Use 1 for testing. ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "examples": [
+                        10
+                      ]
+                    },
+                    "name": {
+                      "type": "string",
+                      "examples": [
+                        "GOV.UK"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid user_id supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "groups"
+        ],
+        "summary": "Update group",
+        "security": {
+          "BearerAuth": []
+        },        
+        "operationId": "updateGroup",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id that need to be updated",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update an existent group",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "examples": [
+                      "GOV.UK"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "groups"
+        ],
+        "summary": "Delete group",
+        "security": {
+          "BearerAuth": []
+        },        
+        "operationId": "deleteGroup",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id that needs to be deleted",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid id supplied"
+          },
+          "404": {
+            "description": "Group not found"
+          }
+        }
+      }
+    },
+    "/groups/{id}/users/{user_id}": {
+      "put": {
+        "tags": [
+          "groups"
+        ],
+        "summary": "Add user to group",
+        "security": {
+          "BearerAuth": []
+        },        
+        "operationId": "addUserToGroup",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id for group to operate on",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "id for user to add to group",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }          
+        ],        
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "User or Group not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "groups"
+        ],
+        "summary": "Remove user from group",
+        "security": {
+          "BearerAuth": []
+        },        
+        "operationId": "removeUserFromGroup",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id for group to operate on",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "id for user to remove from group",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }          
+        ],        
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "User or Group not found"
+          }
+        }
+      }            
+    }, 
     "/tokens": {
       "post": {
         "tags": [
