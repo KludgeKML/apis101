@@ -22,7 +22,7 @@
     {
       "name": "groups",
       "description": "A group with many users"
-    },
+    }
   ],
   "paths": {
     "/users": {
@@ -274,7 +274,7 @@
         ],        
         "responses": {
           "default": {
-            "description": "successful operation",
+            "description": "successful operation"
           },
           "404": {
             "description": "User or Group not found"

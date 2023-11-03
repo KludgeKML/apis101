@@ -26,7 +26,7 @@
     {
       "name": "tokens",
       "description": "Authorization tokens"
-    },
+    }
   ],
   "paths": {
     "/users": {
@@ -72,9 +72,9 @@
           "users"
         ],
         "summary": "Create user",
-        "security": [
-          "BearerAuth": [],
-        ],
+        "security": {
+          "BearerAuth": []
+        },
         "operationId": "createUser",
         "requestBody": {
           "description": "Created user object",
@@ -182,9 +182,9 @@
           "users"
         ],
         "summary": "Update user",
-        "security": [
-          "BearerAuth": [],
-        ],
+        "security": {
+          "BearerAuth": []
+        },
         "operationId": "updateUser",
         "parameters": [
           {
@@ -233,9 +233,9 @@
           "users"
         ],
         "summary": "Delete user",
-        "security": [
-          "BearerAuth": [],
-        ],
+        "security": {
+          "BearerAuth": []
+        },
         "operationId": "deleteUser",
         "parameters": [
           {
@@ -264,9 +264,9 @@
           "users"
         ],
         "summary": "Add group to user",
-        "security": [
-          "BearerAuth": [],
-        ],
+        "security": {
+          "BearerAuth": []
+        },
         "operationId": "addGroupToUser",
         "parameters": [
           {
@@ -290,7 +290,7 @@
         ],        
         "responses": {
           "default": {
-            "description": "successful operation",
+            "description": "successful operation"
           },
           "404": {
             "description": "User or Group not found"
@@ -395,7 +395,7 @@
     "securitySchemes": {
       "BearerAuth": {
         "type": "http",
-        "scheme": "bearer",
+        "scheme": "bearer"
       }
     }
   }
